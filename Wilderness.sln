@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness", "Wilderness\Wilderness.csproj", "{89D2EED2-F043-429B-8A5E-78DF5EBD4A8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Test", "Wilderness.Test\Wilderness.Test.csproj", "{8ACF3764-1FC4-4E58-A309-92ACB9C8693B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89D2EED2-F043-429B-8A5E-78DF5EBD4A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89D2EED2-F043-429B-8A5E-78DF5EBD4A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89D2EED2-F043-429B-8A5E-78DF5EBD4A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89D2EED2-F043-429B-8A5E-78DF5EBD4A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACF3764-1FC4-4E58-A309-92ACB9C8693B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACF3764-1FC4-4E58-A309-92ACB9C8693B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACF3764-1FC4-4E58-A309-92ACB9C8693B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACF3764-1FC4-4E58-A309-92ACB9C8693B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
