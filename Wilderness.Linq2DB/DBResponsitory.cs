@@ -45,48 +45,28 @@ namespace Wilderness.Linq2DB
         {
             return Table.FirstOrDefault(expression);
         }
+        public T GetModel(IQueryable<T> expression)
+        {
+            return expression.FirstOrDefault();
+        }
         public IEnumerable<T> GetList(Expression<Func<T, bool>> expression)
         {
             return Table.Where(expression);
         }
+        public IEnumerable<T> GetList(IQueryable<T> expression)
+        {
+            return expression;
+        }
 
         public IEnumerable<T> GetListByPage(Expression<Func<T, bool>> expression, int currentPage, int pageSize, out int totalRecords)
         {
-            totalRecords = Table.Count();
-            return Table.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+            totalRecords = this.GetCount(expression);
+            return Table.Where(expression).Skip((currentPage - 1) * pageSize).Take(pageSize);
         }
-
-        public override void Close()
+        public IEnumerable<T> GetListByPage(IQueryable<T> expression, int currentPage, int pageSize, out int totalRecords)
         {
-            base.Close();
+            totalRecords = this.GetCount(expression);
+            return expression.Skip((currentPage - 1) * pageSize).Take(pageSize);
         }
-
-        public override DataConnectionTransaction BeginTransaction()
-        {
-            return base.BeginTransaction();
-        }
-
-        public override DataConnectionTransaction BeginTransaction(IsolationLevel isolationLevel)
-        {
-            return base.BeginTransaction(isolationLevel);
-        }
-
-        public override void CommitTransaction()
-        {
-            base.CommitTransaction();
-        }
-
-        public override void RollbackTransaction()
-        {
-            base.RollbackTransaction();
-        }
-
-        protected override SqlStatement ProcessQuery(SqlStatement statement)
-        {
-            return base.ProcessQuery(statement);
-        }
-
-
-
     }
 }

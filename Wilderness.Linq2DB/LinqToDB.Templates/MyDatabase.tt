@@ -50,9 +50,9 @@
 	*/
 
  
- NamespaceName                 = "AllTest";       // Namespace of the generated classes.
+ NamespaceName                 = "CommonService.LinqModel";       // Namespace of the generated classes.
 
-DataContextName               = "MyDB";               //数据库文档名称，为空时数据库名称+DB DataContext class name. If null - database name + "DB".
+DataContextName               = "CommonServiceDB";               //数据库文档名称，为空时数据库名称+DB DataContext class name. If null - database name + "DB".
 //BaseDataContextClass          = null;               //数据库文档名称 Base DataContext class name. If null - LinqToDB.Data.DataConnection.
 //GenerateConstructors          = false;               //数据库文档强制生成构造函数 Enforce generating DataContext constructors.
 //DefaultConfiguration          = null;               //定义数据库 Defines default configuration for default DataContext constructor.
@@ -106,9 +106,10 @@ Func<ForeignKey, string> GetAssociationExtensionPluralName    = GetAssociationEx
 
 
 
-	LoadSqlServerMetadata(".", "mydb", "sa", "sa123456");
+LoadSqlServerMetadata(".", "mydb", "sa", "sa123456");
+
 //	LoadSqlServerMetadata(".", "mydb"); // Integrated Security
 //LoadSqlServerMetadata("MyDatabase");
-
+//Server=119.23.61.137;Database=CommonDB0905;User ID=sa;Password=!QAZ2wsx#EDC;
 	GenerateModel();
 #>

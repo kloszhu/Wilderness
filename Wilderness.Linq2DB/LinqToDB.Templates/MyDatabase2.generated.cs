@@ -15,14 +15,14 @@ using LinqToDB.DataProvider.SqlServer;
 using LinqToDB.Extensions;
 using LinqToDB.Mapping;
 
-namespace AllTest
+namespace CommonService.LinqModel
 {
 	/// <summary>
 	/// Database       : mydb
 	/// Data Source    : .
 	/// Server Version : 11.00.2100
 	/// </summary>
-	public partial class MyDB : LinqToDB.Data.DataConnection
+	public partial class CommonServiceDB : LinqToDB.Data.DataConnection
 	{
 		public ITable<A1>      A1     { get { return this.GetTable<A1>(); } }
 		public ITable<A10>     A10    { get { return this.GetTable<A10>(); } }
@@ -44,13 +44,13 @@ namespace AllTest
 		{
 		}
 
-		public MyDB()
+		public CommonServiceDB()
 		{
 			InitDataContext();
 			InitMappingSchema();
 		}
 
-		public MyDB(string configuration)
+		public CommonServiceDB(string configuration)
 			: base(configuration)
 		{
 			InitDataContext();
@@ -67,7 +67,7 @@ namespace AllTest
 			public int Rank;
 		}
 
-		private static MethodInfo _freeTextTableMethod1 = typeof(MyDB).GetMethod("FreeTextTable", new Type[] { typeof(string), typeof(string) });
+		private static MethodInfo _freeTextTableMethod1 = typeof(CommonServiceDB).GetMethod("FreeTextTable", new Type[] { typeof(string), typeof(string) });
 
 		[FreeTextTableExpression]
 		public ITable<FreeTextKey<TKey>> FreeTextTable<TTable,TKey>(string field, string text)
@@ -80,7 +80,7 @@ namespace AllTest
 		}
 
 		private static MethodInfo _freeTextTableMethod2 = 
-			typeof(MyDB).GetMethods()
+			typeof(CommonServiceDB).GetMethods()
 				.Where(m => m.Name == "FreeTextTable" &&  m.IsGenericMethod && m.GetParameters().Length == 2)
 				.Where(m => m.GetParameters()[0].ParameterType.IsGenericTypeEx() && m.GetParameters()[0].ParameterType.GetGenericTypeDefinition() == typeof(Expression<>))
 				.Where(m => m.GetParameters()[1].ParameterType == typeof(string))

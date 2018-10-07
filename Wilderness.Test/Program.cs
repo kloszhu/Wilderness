@@ -1,5 +1,4 @@
-﻿using AllTest;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +9,8 @@ using EnvDTE;
 using System.Transactions;
 using System.Data.SqlClient;
 using LinqToDB;
+using CommonService.LinqModel;
+
 namespace Wilderness.Test
 {
     class Program
@@ -24,6 +25,8 @@ namespace Wilderness.Test
                     select c;
             var count=db.GetCount(p);
             Console.WriteLine(p.ToString());
+            var dbs = new CommonServiceDB();
+
             Console.WriteLine(count);
             Console.ReadKey();
         }
