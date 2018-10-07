@@ -22,35 +22,35 @@ namespace AllTest
 	/// Data Source    : .
 	/// Server Version : 11.00.2100
 	/// </summary>
-	public partial class MydbDB : LinqToDB.Data.DataConnection
+	public partial class MyDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<A1>     A1      { get { return this.GetTable<A1>(); } }
-		public ITable<A10>    A10     { get { return this.GetTable<A10>(); } }
-		public ITable<A11>    A11     { get { return this.GetTable<A11>(); } }
-		public ITable<A2>     A2      { get { return this.GetTable<A2>(); } }
-		public ITable<A3>     A3      { get { return this.GetTable<A3>(); } }
-		public ITable<A4>     A4      { get { return this.GetTable<A4>(); } }
-		public ITable<A5>     A5      { get { return this.GetTable<A5>(); } }
-		public ITable<A6>     A6      { get { return this.GetTable<A6>(); } }
-		public ITable<A7>     A7      { get { return this.GetTable<A7>(); } }
-		public ITable<A8>     A8      { get { return this.GetTable<A8>(); } }
-		public ITable<A9>     A9      { get { return this.GetTable<A9>(); } }
-		public ITable<Artist> Artists { get { return this.GetTable<Artist>(); } }
-		public ITable<Poco>   Pocoes  { get { return this.GetTable<Poco>(); } }
-		public ITable<Track>  Tracks  { get { return this.GetTable<Track>(); } }
-		public ITable<TTest>  TTests  { get { return this.GetTable<TTest>(); } }
+		public ITable<A1>      A1     { get { return this.GetTable<A1>(); } }
+		public ITable<A10>     A10    { get { return this.GetTable<A10>(); } }
+		public ITable<A11>     A11    { get { return this.GetTable<A11>(); } }
+		public ITable<A2>      A2     { get { return this.GetTable<A2>(); } }
+		public ITable<A3>      A3     { get { return this.GetTable<A3>(); } }
+		public ITable<A4>      A4     { get { return this.GetTable<A4>(); } }
+		public ITable<A5>      A5     { get { return this.GetTable<A5>(); } }
+		public ITable<A6>      A6     { get { return this.GetTable<A6>(); } }
+		public ITable<A7>      A7     { get { return this.GetTable<A7>(); } }
+		public ITable<A8>      A8     { get { return this.GetTable<A8>(); } }
+		public ITable<A9>      A9     { get { return this.GetTable<A9>(); } }
+		public ITable<Artists> Artist { get { return this.GetTable<Artists>(); } }
+		public ITable<Pocoes>  Poco   { get { return this.GetTable<Pocoes>(); } }
+		public ITable<Tracks>  Track  { get { return this.GetTable<Tracks>(); } }
+		public ITable<TTests>  TTest  { get { return this.GetTable<TTests>(); } }
 
 		public void InitMappingSchema()
 		{
 		}
 
-		public MydbDB()
+		public MyDB()
 		{
 			InitDataContext();
 			InitMappingSchema();
 		}
 
-		public MydbDB(string configuration)
+		public MyDB(string configuration)
 			: base(configuration)
 		{
 			InitDataContext();
@@ -67,7 +67,7 @@ namespace AllTest
 			public int Rank;
 		}
 
-		private static MethodInfo _freeTextTableMethod1 = typeof(MydbDB).GetMethod("FreeTextTable", new Type[] { typeof(string), typeof(string) });
+		private static MethodInfo _freeTextTableMethod1 = typeof(MyDB).GetMethod("FreeTextTable", new Type[] { typeof(string), typeof(string) });
 
 		[FreeTextTableExpression]
 		public ITable<FreeTextKey<TKey>> FreeTextTable<TTable,TKey>(string field, string text)
@@ -80,7 +80,7 @@ namespace AllTest
 		}
 
 		private static MethodInfo _freeTextTableMethod2 = 
-			typeof(MydbDB).GetMethods()
+			typeof(MyDB).GetMethods()
 				.Where(m => m.Name == "FreeTextTable" &&  m.IsGenericMethod && m.GetParameters().Length == 2)
 				.Where(m => m.GetParameters()[0].ParameterType.IsGenericTypeEx() && m.GetParameters()[0].ParameterType.GetGenericTypeDefinition() == typeof(Expression<>))
 				.Where(m => m.GetParameters()[1].ParameterType == typeof(string))
@@ -102,109 +102,110 @@ namespace AllTest
 	[Table(Schema="dbo", Name="A1")]
 	public partial class A1
 	{
-		[PrimaryKey, Identity] public int    Id   { get; set; } // int
-		[Column,     Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey, Identity] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000), Nullable            ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A10")]
 	public partial class A10
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A11")]
 	public partial class A11
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A2")]
 	public partial class A2
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey, Identity] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000), Nullable            ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A3")]
 	public partial class A3
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",              DataType=DataType.Int32),                PrimaryKey, Identity] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)",    DataType=DataType.VarChar, Length=8000), Nullable            ] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="uniqueidentifier", DataType=DataType.Guid),                 Nullable            ] public Guid?  Code { get; set; } // uniqueidentifier
 	}
 
 	[Table(Schema="dbo", Name="A4")]
 	public partial class A4
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A5")]
 	public partial class A5
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A6")]
 	public partial class A6
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A7")]
 	public partial class A7
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A8")]
 	public partial class A8
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="A9")]
 	public partial class A9
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="Artist")]
-	public partial class Artist
+	public partial class Artists
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="Poco")]
-	public partial class Poco
+	public partial class Pocoes
 	{
-		[PrimaryKey, NotNull    ] public int    Id   { get; set; } // int
-		[Column,        Nullable] public string Name { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  NotNull] public int    Id   { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable         ] public string Name { get; set; } // varchar(8000)
 	}
 
 	[Table(Schema="dbo", Name="Track")]
-	public partial class Track
+	public partial class Tracks
 	{
-		[PrimaryKey, Identity   ] public int    Id       { get; set; } // int
-		[Column,        Nullable] public string Name     { get; set; } // varchar(8000)
-		[Column,     NotNull    ] public int    ArtistId { get; set; } // int
-		[Column,        Nullable] public string Album    { get; set; } // varchar(8000)
-		[Column,     NotNull    ] public int    Year     { get; set; } // int
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey,  Identity] public int    Id       { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable          ] public string Name     { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                NotNull              ] public int    ArtistId { get; set; } // int
+		[Column(DbType="varchar(8000)", DataType=DataType.VarChar, Length=8000),    Nullable          ] public string Album    { get; set; } // varchar(8000)
+		[Column(DbType="int",           DataType=DataType.Int32),                NotNull              ] public int    Year     { get; set; } // int
 	}
 
 	[Table(Schema="dbo", Name="T_Test")]
-	public partial class TTest
+	public partial class TTests
 	{
-		[PrimaryKey, Identity] public int    Id   { get; set; } // int
-		[Column,     Nullable] public string Name { get; set; } // nvarchar(100)
+		[Column(DbType="int",           DataType=DataType.Int32),                PrimaryKey, Identity] public int    Id   { get; set; } // int
+		[Column(DbType="nvarchar(100)", DataType=DataType.NVarChar, Length=100), Nullable            ] public string Name { get; set; } // nvarchar(100)
 	}
 
 	public static partial class TableExtensions
@@ -275,25 +276,25 @@ namespace AllTest
 				t.Id == Id);
 		}
 
-		public static Artist Find(this ITable<Artist> table, int Id)
+		public static Artists Find(this ITable<Artists> table, int Id)
 		{
 			return table.FirstOrDefault(t =>
 				t.Id == Id);
 		}
 
-		public static Poco Find(this ITable<Poco> table, int Id)
+		public static Pocoes Find(this ITable<Pocoes> table, int Id)
 		{
 			return table.FirstOrDefault(t =>
 				t.Id == Id);
 		}
 
-		public static Track Find(this ITable<Track> table, int Id)
+		public static Tracks Find(this ITable<Tracks> table, int Id)
 		{
 			return table.FirstOrDefault(t =>
 				t.Id == Id);
 		}
 
-		public static TTest Find(this ITable<TTest> table, int Id)
+		public static TTests Find(this ITable<TTests> table, int Id)
 		{
 			return table.FirstOrDefault(t =>
 				t.Id == Id);

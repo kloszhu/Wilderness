@@ -1,3 +1,4 @@
+<#@ template language="C#" debug="True" hostSpecific="True"                           #>
 <#@ assembly name="System.Core"                   #>
 <#@ assembly name="EnvDTE"                        #>
 <#@ import namespace="System.Collections.Generic" #>
