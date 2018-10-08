@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Linq2DB", "Wilde
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqToDB", "LinqToDB\LinqToDB.csproj", "{00660B44-2ECB-46E3-9466-8B959BEB842C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.AutoMapper", "Wilderness.AutoMapper\Wilderness.AutoMapper.csproj", "{79C8116C-6C6A-41C0-AABA-E56E6DD59EE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{00660B44-2ECB-46E3-9466-8B959BEB842C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00660B44-2ECB-46E3-9466-8B959BEB842C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00660B44-2ECB-46E3-9466-8B959BEB842C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C8116C-6C6A-41C0-AABA-E56E6DD59EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C8116C-6C6A-41C0-AABA-E56E6DD59EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C8116C-6C6A-41C0-AABA-E56E6DD59EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C8116C-6C6A-41C0-AABA-E56E6DD59EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

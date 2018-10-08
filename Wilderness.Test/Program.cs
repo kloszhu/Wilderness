@@ -19,16 +19,25 @@ namespace Wilderness.Test
         {
             var db = new DBResponsitory<A2>();
             var db2 = new DBResponsitory<A1>();
+            //右连接
             var p = from c in db.Table
                     from d in db2.Table.RightJoin(pp => pp.Id == c.Id)
-                    where d.Name.LastIndexOf("周杰伦")>0
-                    select c;
-            var count=db.GetCount(p);
+                    where d.Name.Contains("周杰伦")
+                    select new { c, d};
+            Console.WriteLine(p.Count());
             Console.WriteLine(p.ToString());
-            var dbs = new CommonServiceDB();
-
-            Console.WriteLine(count);
+           
+            //分页
+            var o = db.Table.Skip(1).Take(20);
+            Console.WriteLine(o.ToString());
+            o.Set(a=>a.Name,)
             Console.ReadKey();
+
+
+            //var dbs = new CommonServiceDB();
+
+            //Console.WriteLine(count);
+
         }
     }
 }

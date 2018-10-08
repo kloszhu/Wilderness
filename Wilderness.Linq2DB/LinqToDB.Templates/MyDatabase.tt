@@ -60,10 +60,10 @@ DataContextName               = "CommonServiceDB";               //Êı¾İ¿âÎÄµµÃû³
 //BaseEntityClass               = "baseEnity";               //Ä£ĞÍ»ùÀà Base Entity class name. If null - none.
 //DatabaseName                  = null;               //Êı¾İ±íÃû³Æ Table database name - [Table(Database="DatabaseName")].
 //GenerateDatabaseName          = false;              //×ÜÊÇÉú³ÉÊı¾İ¿âÃû³Æ Always generate table database name, even though DatabaseName is null.
-IncludeDefaultSchema          = true;               // Default schema name is generated - [Table(Database="Northwind", Schema="dbo", Name="Customers")]
+IncludeDefaultSchema          = true;               //Ä¬ÈÏ Default schema name is generated - [Table(Database="Northwind", Schema="dbo", Name="Customers")]
 //
-OneToManyAssociationType      = "IEnumerable<{0}>"; // One To Many association type (for members only). Change it to "List<{0}>" if needed.
-GenerateAssociations          = true;               // Enforce generating associations as type members.
+OneToManyAssociationType      = "IEnumerable<{0}>"; //Ò»¶Ô¶à One To Many association type (for members only). Change it to "List<{0}>" if needed.
+GenerateAssociations          = true;               //Ç¿ÖÆÉú³É Enforce generating associations as type members.
 GenerateBackReferences        = true;               // Enforce generating backreference associations (affects both members and extensions).
 GenerateAssociationExtensions = true;              // Enforce generating associations as extension methods. NB: this option does not affect GenerateAssociations. This will require linq2db 1.9.0 and above
 
