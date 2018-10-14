@@ -52,18 +52,18 @@
  
  NamespaceName                 = "CommonService.LinqModel";       // Namespace of the generated classes.
 
-DataContextName               = "CommonServiceDB";               //Êı¾İ¿âÎÄµµÃû³Æ£¬Îª¿ÕÊ±Êı¾İ¿âÃû³Æ+DB DataContext class name. If null - database name + "DB".
-//BaseDataContextClass          = null;               //Êı¾İ¿âÎÄµµÃû³Æ Base DataContext class name. If null - LinqToDB.Data.DataConnection.
-//GenerateConstructors          = false;               //Êı¾İ¿âÎÄµµÇ¿ÖÆÉú³É¹¹Ôìº¯Êı Enforce generating DataContext constructors.
-//DefaultConfiguration          = null;               //¶¨ÒåÊı¾İ¿â Defines default configuration for default DataContext constructor.
+DataContextName               = "CommonServiceDB";               //æ•°æ®åº“æ–‡æ¡£åç§°ï¼Œä¸ºç©ºæ—¶æ•°æ®åº“åç§°+DB DataContext class name. If null - database name + "DB".
+//BaseDataContextClass          = null;               //æ•°æ®åº“æ–‡æ¡£åç§° Base DataContext class name. If null - LinqToDB.Data.DataConnection.
+//GenerateConstructors          = false;               //æ•°æ®åº“æ–‡æ¡£å¼ºåˆ¶ç”Ÿæˆæ„é€ å‡½æ•° Enforce generating DataContext constructors.
+//DefaultConfiguration          = null;               //å®šä¹‰æ•°æ®åº“ Defines default configuration for default DataContext constructor.
 
-//BaseEntityClass               = "baseEnity";               //Ä£ĞÍ»ùÀà Base Entity class name. If null - none.
-//DatabaseName                  = null;               //Êı¾İ±íÃû³Æ Table database name - [Table(Database="DatabaseName")].
-//GenerateDatabaseName          = false;              //×ÜÊÇÉú³ÉÊı¾İ¿âÃû³Æ Always generate table database name, even though DatabaseName is null.
-IncludeDefaultSchema          = true;               //Ä¬ÈÏ Default schema name is generated - [Table(Database="Northwind", Schema="dbo", Name="Customers")]
+//BaseEntityClass               = "baseEnity";               //æ¨¡å‹åŸºç±» Base Entity class name. If null - none.
+//DatabaseName                  = null;               //æ•°æ®è¡¨åç§° Table database name - [Table(Database="DatabaseName")].
+//GenerateDatabaseName          = false;              //æ€»æ˜¯ç”Ÿæˆæ•°æ®åº“åç§° Always generate table database name, even though DatabaseName is null.
+IncludeDefaultSchema          = true;               //é»˜è®¤ Default schema name is generated - [Table(Database="Northwind", Schema="dbo", Name="Customers")]
 //
-OneToManyAssociationType      = "IEnumerable<{0}>"; //Ò»¶Ô¶à One To Many association type (for members only). Change it to "List<{0}>" if needed.
-GenerateAssociations          = true;               //Ç¿ÖÆÉú³É Enforce generating associations as type members.
+OneToManyAssociationType      = "IEnumerable<{0}>"; //ä¸€å¯¹å¤š One To Many association type (for members only). Change it to "List<{0}>" if needed.
+GenerateAssociations          = true;               //å¼ºåˆ¶ç”Ÿæˆ Enforce generating associations as type members.
 GenerateBackReferences        = true;               // Enforce generating backreference associations (affects both members and extensions).
 GenerateAssociationExtensions = true;              // Enforce generating associations as extension methods. NB: this option does not affect GenerateAssociations. This will require linq2db 1.9.0 and above
 
@@ -77,7 +77,7 @@ PluralizeDataContextPropertyNames   = true;    // If true, pluralizes DataContex
 SingularizeDataContextPropertyNames = true;   // If true, singularizes DataContex pProperty names.
 //
 GenerateDataTypes                   = true;   // If true, generates the DataType/Length/Precision/Scale properties of the Column attribute (unless overriden by the properties below).
-//GenerateDataTypeProperty            = true;    // ÕâÀï±¨´íIf true, generates the DataType property of the Column attribute. If false, excludes generation on the DataType property even if GenerateDataTypes == true.
+//GenerateDataTypeProperty            = true;    // è¿™é‡ŒæŠ¥é”™If true, generates the DataType property of the Column attribute. If false, excludes generation on the DataType property even if GenerateDataTypes == true.
 GenerateLengthProperty              = true;    // If true, generates the Length property of the Column attribute. If false, excludes generation on the Length property even if GenerateDataTypes == true.
 GeneratePrecisionProperty           = true;    // If true, generates the Precision property of the Column attribute. If false, excludes generation on the Precision property even if GenerateDataTypes == true.
 GenerateScaleProperty               = true;    // If true, generates the Scale property of the Column attribute. If false, excludes generation on the Scale property even if GenerateDataTypes == true.
@@ -110,6 +110,5 @@ LoadSqlServerMetadata(".", "mydb", "sa", "sa123456");
 
 //	LoadSqlServerMetadata(".", "mydb"); // Integrated Security
 //LoadSqlServerMetadata("MyDatabase");
-//Server=119.23.61.137;Database=CommonDB0905;User ID=sa;Password=!QAZ2wsx#EDC;
 	GenerateModel();
 #>
